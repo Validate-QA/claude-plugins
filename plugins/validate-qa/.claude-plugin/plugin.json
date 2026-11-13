@@ -7,6 +7,7 @@
     "name": "Validate.QA",
     "url": "https://validate.qa"
   },
+  "license": "MIT",
   "homepage": "https://validate.qa/docs/claude-code",
   "repository": "https://github.com/Validate-QA/claude-plugins",
   "keywords": [
