@@ -14,12 +14,14 @@ if (input.stop_hook_active) process.exit(0); // already continuing because of a 
 
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
 let changed;
-try { changed = git('status', '--porcelain').split('\n').filter(Boolean).map((l) => l.slice(3)); } catch { process.exit(0); } // not a git repo
+try { changed = git('status', '--porcelain', '-z', '--no-renames').split('\0').filter(Boolean).map((l) => l.slice(3)); } catch { process.exit(0); } // not a git repo
 const app = changed.filter((f) => !/\.(md|mdx|txt)$/i.test(f) && !/^(docs?|\.github|\.claude)\//.test(f));
 if (app.length === 0) process.exit(0);
 
 const seenDir = join(tmpdir(), 'validate-qa-stop-hook');
-const key = createHash('sha256').update(app.join('\n') + git('diff', '--', ...app)).digest('hex').slice(0, 16);
+let diff = '';
+try { diff = git('diff', '--', ...app); } catch { /* a path git cannot diff: key on the file list alone */ }
+const key = createHash('sha256').update(app.join('\n') + diff).digest('hex').slice(0, 16);
 const marker = join(seenDir, key);
 if (existsSync(marker)) process.exit(0);
 mkdirSync(seenDir, { recursive: true });

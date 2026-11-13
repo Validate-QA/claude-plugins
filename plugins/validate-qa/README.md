@@ -40,7 +40,7 @@ If your host cannot open a browser for OAuth, use a personal access token with t
       "args": ["-y", "@validate.qa/mcp@latest"],
       "env": {
         "VALIDATEQA_API_URL": "https://shared.validate.qa",
-        "VALIDATEQA_TOKEN": "pat_...",
+        "VALIDATEQA_TOKEN": "${VALIDATEQA_TOKEN}",
         "VALIDATEQA_PROJECT_ID": "<project id>"
       }
     }
@@ -48,7 +48,7 @@ If your host cannot open a browser for OAuth, use a personal access token with t
 }
 ```
 
-Create the `pat_` token in your Validate.QA profile. Keep it out of git (put it in your shell environment and reference `${VALIDATEQA_TOKEN}` instead of pasting it). Disable the plugin's OAuth server with `/mcp` if you use this, so Claude has one connection, not two.
+Create the `pat_` token in your Validate.QA profile. Keep it out of git: export it in your shell environment as `VALIDATEQA_TOKEN`; the config above reads it from there. Disable the plugin's OAuth server with `/mcp` if you use this, so Claude has one connection, not two.
 
 ## Optional hook: remind Claude to run the tests
 

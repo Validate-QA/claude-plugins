@@ -29,7 +29,7 @@ Read the repo (README, package manifest, routes, auth code) for what the app doe
 
 Call `get_runner_health`. If no runner is online, say so and stop: nothing can run until one is.
 
-Call `run_discovery` with `mode: "survey"` (maps features and screens, generates no tests). Then wait: `get_discovery_status` at most every 30-60 seconds, and report progress in one line each time, not a log. A survey can take several minutes. When `status` is finished, call `list_features`.
+Call `run_discovery` with `mode: "survey"` (maps features and screens, generates no tests). Then wait: `get_discovery_status` at most every 30-60 seconds, and report progress in one line each time, not a log. A survey can take several minutes. Pass the `jobId` from `run_discovery` and wait until `phase` is `completed` or `failed` (the row `status` can read COMPLETED while follow-up runs are still going), then call `list_features`.
 
 If a call returns `PLAN_FEATURE_LOCKED`: the call uses Validate.QA's own AI, which needs the Solo Dev plan. MCP Army (free) is for bring-your-own-AI: Claude can write tests itself with `create_test`. Tell the user, point them to https://validate.qa/pricing, and offer the `create_test` route for one or two flows instead.
 
