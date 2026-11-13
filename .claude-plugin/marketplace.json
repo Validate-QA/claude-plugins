@@ -1,0 +1,18 @@
+{
+  "name": "validate-qa-plugins",
+  "owner": { "name": "Validate.QA", "url": "https://validate.qa" },
+  "metadata": {
+    "description": "Claude Code plugins from Validate.QA: AI-generated browser tests, run in the cloud, set up and triaged from Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "validate-qa",
+      "source": "./plugins/validate-qa",
+      "description": "Connect Claude Code to Validate.QA: set up AI-generated browser tests for your app, run the affected tests after Claude changes it, and triage failures. Includes the free whole-repo QA review.",
+      "version": "1.5.0",
+      "category": "testing",
+      "homepage": "https://validate.qa/docs/claude-code",
+      "keywords": ["qa", "testing", "playwright", "end-to-end", "regression", "mcp"]
+    }
+  ]
+}

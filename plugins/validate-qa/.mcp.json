@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "validate-qa": {
+      "type": "http",
+      "url": "https://api.shared.validate.qa/mcp"
+    }
+  }
+}

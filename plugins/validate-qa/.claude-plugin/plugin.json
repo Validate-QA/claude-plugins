@@ -1,0 +1,27 @@
+{
+  "name": "validate-qa",
+  "displayName": "Validate.QA",
+  "version": "1.5.0",
+  "description": "Connect Claude Code to Validate.QA: set up AI-generated browser tests for your app, run the affected tests after Claude changes it, and triage failures (heal the test or flag the bug). Also includes the free whole-repo QA review.",
+  "author": {
+    "name": "Validate.QA",
+    "url": "https://validate.qa"
+  },
+  "homepage": "https://validate.qa/docs/claude-code",
+  "repository": "https://github.com/Validate-QA/claude-plugins",
+  "keywords": [
+    "qa",
+    "testing",
+    "playwright",
+    "end-to-end",
+    "regression",
+    "mcp",
+    "validate-qa",
+    "bug-finding"
+  ],
+  "documentationUrl": "https://validate.qa/docs/claude-code",
+  "supportUrl": "https://validate.qa/docs/claude-code",
+  "privacyPolicyUrl": "https://validate.qa/privacy",
+  "termsOfServiceUrl": "https://validate.qa/terms",
+  "icon": ".claude-plugin/icon.png"
+}
